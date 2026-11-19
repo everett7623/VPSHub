@@ -1,0 +1,1 @@
+ALTER TABLE vps ADD COLUMN socks_proxy TEXT DEFAULT '';

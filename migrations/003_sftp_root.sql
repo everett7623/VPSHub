@@ -1,0 +1,1 @@
+ALTER TABLE vps ADD COLUMN sftp_root TEXT DEFAULT '';

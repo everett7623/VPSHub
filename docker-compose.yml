@@ -1,0 +1,27 @@
+# Bind to localhost by default; put TLS/auth in front (see deploy/Caddyfile.example).
+services:
+  vpshub:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - vpshub-data:/data
+      # Optional: mount a host config (copy from config.yaml and edit)
+      # - ./config.yaml:/etc/vpshub/config.yaml:ro
+    environment:
+      VPSHUB_LISTEN: "0.0.0.0:8080"
+      VPSHUB_DATA_DIR: /data
+      VPSHUB_MIGRATIONS: /app/migrations
+      # Behind a reverse proxy terminating TLS, leave secure cookie off or set true once HTTPS reaches the app.
+      VPSHUB_SECURE_COOKIE: "false"
+      # Optional alerts (prefer secrets file / compose secrets in production)
+      # VPSHUB_ALERT_WEBHOOK: "https://hooks.example/…"
+      # VPSHUB_ALERT_TELEGRAM_TOKEN: ""
+      # VPSHUB_ALERT_TELEGRAM_CHAT_ID: ""
+      # VPSHUB_SMTP_HOST: ""
+      # VPSHUB_SMTP_FROM: ""
+      # VPSHUB_SMTP_TO: ""
+    restart: unless-stopped
+
+volumes:
+  vpshub-data:

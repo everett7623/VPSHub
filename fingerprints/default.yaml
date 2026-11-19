@@ -1,0 +1,60 @@
+- name: docker
+  units: [docker.service]
+  processes: [dockerd]
+  ports: []
+- name: nginx
+  units: [nginx.service]
+  processes: [nginx]
+  ports: ["80", "443"]
+- name: caddy
+  units: [caddy.service]
+  processes: [caddy]
+  ports: ["80", "443"]
+- name: xray
+  units: [xray.service]
+  processes: [xray]
+  ports: []
+- name: sing-box
+  units: [sing-box.service]
+  processes: [sing-box]
+  ports: []
+- name: hysteria2
+  units: [hysteria-server.service, hysteria2.service]
+  processes: [hysteria]
+  ports: []
+- name: shadowsocks-rust
+  units: [shadowsocks-rust.service]
+  processes: [ssserver]
+  ports: []
+- name: komari
+  units: [komari.service]
+  processes: [komari]
+  ports: []
+- name: nezha
+  units: [nezha-agent.service]
+  processes: [nezha-agent]
+  ports: []
+- name: mysql
+  units: [mysql.service, mysqld.service]
+  processes: [mysqld]
+  ports: ["3306"]
+- name: postgresql
+  units: [postgresql.service]
+  processes: [postgres]
+  ports: ["5432"]
+- name: redis
+  units: [redis.service, redis-server.service]
+  processes: [redis-server]
+  ports: ["6379"]
+- name: wireguard
+  units: [wg-quick@wg0.service]
+  processes: []
+  ports: ["51820"]
+- name: fail2ban
+  units: [fail2ban.service]
+  processes: [fail2ban-server]
+  ports: []
+- name: cloudflared
+  units: [cloudflared.service]
+  processes: [cloudflared]
+  ports: []

@@ -1,0 +1,22 @@
+[Unit]
+Description=VPSHub panel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=vpshub
+Group=vpshub
+ExecStart=/usr/local/bin/vpshub -config /etc/vpshub/config.yaml
+WorkingDirectory=/var/lib/vpshub
+Environment=VPSHUB_MIGRATIONS=/usr/lib/vpshub/migrations
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/vpshub
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+/data/
+*.db
+*.db-*
+web/node_modules/
+web/dist/assets/
+web/dist/**/*.js
+web/dist/**/*.css
+!web/dist/index.html
+.idea/
+.vscode/
+*.exe
+/vpshub
+/bin/
+.env
+*.vbak

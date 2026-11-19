@@ -1,0 +1,43 @@
+listen: "127.0.0.1:8080"
+data_dir: "./data"
+session_ttl: 8h
+vault_lock_ttl: 30m
+secure_cookie: false
+login_max_fails: 5
+login_lock_minutes: 15
+ssh_dial_timeout: 15s
+ssh_cmd_timeout: 5m
+ssh_max_output: 2097152
+ssh_max_per_host: 2
+task_max_concurrency: 5
+task_prod_concurrency: 1
+webssh_enabled: false
+sftp_enabled: false
+# Optional obscure entry path, e.g. /p/a8f3c1 (server-panel style). Leave empty for /
+base_path: ""
+# Trusted reverse proxies for real client IP (loopback/private trusted by default)
+trusted_proxies: []
+probe_interval: 5m
+# Optional browser basic auth. Leave empty to disable. The installer stores an Argon2id hash, never the password.
+basic_auth_user: ""
+basic_auth_hash: ""
+# Set both to serve HTTPS. The installer --public flag fills these with a self-signed certificate.
+tls_cert: ""
+tls_key: ""
+# Optional IP allowlist (CIDR or exact). Empty = disabled.
+ip_whitelist: []
+# Alert channels (also overridable via VPSHUB_ALERT_* env vars)
+alert_webhook_url: ""
+alert_telegram_token: ""
+alert_telegram_chat_id: ""
+smtp_host: ""
+smtp_port: 587
+smtp_user: ""
+smtp_pass: ""
+smtp_from: ""
+smtp_to: ""
+# Optional OpenAI-compatible AI advisor (suggest only; never auto-runs SSH)
+ai_enabled: false
+ai_base_url: "https://api.openai.com/v1"
+ai_api_key: ""
+ai_model: "gpt-4o-mini"

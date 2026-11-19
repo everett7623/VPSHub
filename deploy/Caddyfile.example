@@ -1,0 +1,4 @@
+# Terminate TLS and reverse-proxy to VPSHub bound on 127.0.0.1:8080
+vpshub.example.com {
+	reverse_proxy 127.0.0.1:8080
+}
